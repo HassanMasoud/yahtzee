@@ -80,7 +80,7 @@ class Game extends Component {
       rollsLeft: NUM_ROLLS,
       locked: Array(NUM_DICE).fill(false),
     }));
-    this.roll();
+    this.animateRoll();
   }
 
   render() {
@@ -102,7 +102,8 @@ class Game extends Component {
                 className="Game-reroll"
                 disabled={
                   this.state.locked.every((x) => x) ||
-                  this.state.rollsLeft === 0
+                  this.state.rollsLeft === 0 ||
+                  this.state.rolling
                 }
                 onClick={this.animateRoll}
               >
