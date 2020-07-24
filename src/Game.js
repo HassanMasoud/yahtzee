@@ -83,6 +83,16 @@ class Game extends Component {
     this.animateRoll();
   }
 
+  displayRollingInfo() {
+    const messages = [
+      "0 Rolls Left",
+      "1 Roll Left",
+      "2 Rolls Left",
+      "Starting Round",
+    ];
+    return messages[this.state.rollsLeft];
+  }
+
   render() {
     return (
       <div className="Game">
@@ -107,7 +117,7 @@ class Game extends Component {
                 }
                 onClick={this.animateRoll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {this.displayRollingInfo()}
               </button>
             </div>
           </section>
